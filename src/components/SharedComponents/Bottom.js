@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import "react-circular-progressbar/dist/styles.css";
 export default function Bottom(){
-    const percentage = 60;
+    const percentage = 20;
     return(
         <Container>
             <Menu>

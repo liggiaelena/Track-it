@@ -12,6 +12,7 @@ export default function HistoricPage(){
             Histórico
             </Header>
             <p>Em breve você poderá ver o histórico dos seus hábitos aqui!</p>
+       
         </Page>
 
         <Bottom/>

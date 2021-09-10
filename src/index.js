@@ -6,10 +6,16 @@ import HabitsPage from './components/HabitsPage/HabitsPage';
 import TodayPage from './components/TodayPage/TodayPage';
 import HistoricPage from './components/HistoricPage/HistoricPage';
 import './index.css';
+import UserContext from './contexts/UserContext';
+import { useState } from 'react';
 
 function Root(){
+    const [token, setToken]= useState("");
+    console.log(setToken)
+
     return(
-      <BrowserRouter>
+        <UserContext.Provider value={token, setToken}>
+    <BrowserRouter>
         <Switch>
             <Route path="/" exact>
                 <LoginPage /> 
@@ -28,6 +34,8 @@ function Root(){
             </Route>    
         </Switch>     
     </BrowserRouter>
+        </UserContext.Provider>
+    
 
     );
 }

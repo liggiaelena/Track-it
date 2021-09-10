@@ -14,17 +14,25 @@ const ClientInformation = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center; 
+    opacity: ${(props)=> props.loading? "0.7": "1"};
 
     button{
         width: 300px;
         height: 45px;
-        background-color: #52B6FF;
+        background-color:#52B6FF;
         border-radius: 4.6px;
         color: #ffffff;
         font-size: 21px;
         text-align: center;
         border: none;
     }
+    input{
+    font-family: 'Lexend Deca';
+    font-size: 18px;
+    color: gray;
+    padding-left: 10px;
+    background-color: ${(props)=> props.loading? "#F2F2F2": "#ffffff"};
+}
 
    
  
