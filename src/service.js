@@ -68,6 +68,18 @@ function deleteHabitAxios(id, token){
     return promise;
 }
 
+function postTaskCompleted(id, checkbox, token){
+    console.log(token, id, checkbox)
+    const config = {
+        headers:{
+            "Authorization": `Bearer ${token}`
+        }
+    }
+    const promise = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/${checkbox}`,{},config);
+
+    return promise;
+}
+
 
 export {
     postAccount,
@@ -75,5 +87,6 @@ export {
     getTodayHabits,
     postNewHabit,
     getAllHabits,
-    deleteHabitAxios
+    deleteHabitAxios,
+    postTaskCompleted
 }
