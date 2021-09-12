@@ -6,16 +6,15 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { postAccount } from '../../service';
 import { useHistory } from 'react-router';
-import  UserContext from "../../contexts/UserContext"
+import  UserContext  from "../../contexts/UserContext"
 
 export default function LoginPage(){
     const [loading, setLoading]= useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
-    const {setToken} = useContext(UserContext);
-    console.log( setToken)
-
+    const { setToken } = useContext(UserContext);
+  
 
     function enterAccount(){
         const body = { email, password }
@@ -23,6 +22,7 @@ export default function LoginPage(){
         promisse.then((response)=>{
         history.push("/hoje");
         setToken(response.data.token);
+        console.log(response.data)
     })
         setLoading(true)
         promisse.catch(()=>{

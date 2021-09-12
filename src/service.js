@@ -13,13 +13,13 @@ function postAccount(body){
 }
 
 function getTodayHabits(token){
-    const body = {
+    const config = {
         headers:{
-            Authorization: `Bearer ${token}`
+            "Authorization": `Bearer ${token}`
         }
     }
 
-    const promisse = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today",body)
+    const promisse = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today", config)
 
     return promisse;
 }

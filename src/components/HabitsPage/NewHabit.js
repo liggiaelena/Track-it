@@ -1,22 +1,20 @@
+import { useState } from "react";
 import { Day, Week, WhiteBox, ContainerWhiteBoxes, Box,Cancelar, Salvar} from "../SharedStyles/StyleHabits"
+import  Days from "./Days"
 
  
-export default function NewHabit(){
+export default function NewHabit({createNewHabit}){
+    const [name, setName] = useState("");
+    const [days, setDays] = useState([]);
 
     return(
         <ContainerWhiteBoxes>
             <WhiteBox>
                 <Box >
-                 <input placeholder="Novo hábito..."/> 
+                 <input placeholder="nome do hábito" value={name} onChange={(e)=> setName(e.target.value)}/> 
                 </Box>
             <Week>
-                <Day>D</Day>
-                <Day>S</Day>
-                <Day>T</Day>
-                <Day>Q</Day>
-                <Day>Q</Day>
-                <Day>S</Day>
-                <Day>S</Day>
+                <Days/>
             </Week>
             <Box position="flex-end">
                 <Cancelar>Cancelar</Cancelar>
@@ -29,3 +27,4 @@ export default function NewHabit(){
 
     );
 }
+

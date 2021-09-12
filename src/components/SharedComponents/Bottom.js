@@ -1,26 +1,39 @@
 import styled from 'styled-components';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import "react-circular-progressbar/dist/styles.css";
+import  UserContext  from "../../contexts/UserContext";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+
 export default function Bottom(){
-    const percentage = 20;
+    const {percentage} = useContext(UserContext);
+
+
     return(
         <Container>
             <Menu>
-                <p>Hábitos</p> 
-                <p>Histórico</p>
+                <Link to="/habitos" >
+                    <p>Hábitos</p> 
+                </Link>
+                <Link to="/historico" >
+                    <p>Histórico</p> 
+                </Link>
             </Menu>
             <Progress>
-                <CircularProgressbar styles={buildStyles({
-                pathColor: `#ffffff`,
-                trailColor: "transparent",
-                textColor:"#ffffff",
-                textSize: "18px",
-                strokeLinecap: 'round',
-                pathTransitionDuration: 1.2
-                })}
-                value={percentage}
-                text="Hoje"
-                />
+                <Link to="/hoje">
+                    <CircularProgressbar styles={buildStyles({
+                    pathColor: `#ffffff`,
+                    trailColor: "transparent",
+                    textColor:"#ffffff",
+                    textSize: "18px",
+                    strokeLinecap: 'round',
+                    pathTransitionDuration: 1.2
+                    })}
+                    value={percentage}
+                    text="Hoje"
+                    />
+                </Link>
+                
             </Progress>  
         </Container>
     );
@@ -43,8 +56,10 @@ const Menu = styled.div`
         font-size: 18px;
         color: #52B6FF;
         padding: 0px 30px;
+        text-decoration: none;
     }
 `
+
 const Progress =styled.div`
     position: fixed;
     z-index:2;
@@ -63,4 +78,5 @@ const Container = styled.div `
     display: flex;
     justify-content: center;
     width: 100%;
+    text-decoration: none;
 `

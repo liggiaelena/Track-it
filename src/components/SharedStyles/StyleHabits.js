@@ -59,6 +59,7 @@ const Day = styled.div`
     align-items: center;
     margin-left: 5px;
     margin-top: 10px;
+    
 `
 const Cancelar = styled.div`
     width: 84px;
