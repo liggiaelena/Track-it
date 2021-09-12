@@ -35,7 +35,7 @@ const Header = styled.div`
         color: #ffffff;
        
     }
-
+   
 `
 export{
     Page,

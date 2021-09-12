@@ -20,8 +20,8 @@ export default function LoginPage(){
         const body = { email, password }
         const promisse = postAccount(body);
         promisse.then((response)=>{
+        setToken(response.data.token);  
         history.push("/hoje");
-        setToken(response.data.token);
         console.log(response.data)
     })
         setLoading(true)
@@ -40,7 +40,7 @@ export default function LoginPage(){
         <ClientInformation loading={loading}>
             <input placeholder="email" value={email} onChange={ e => setEmail(e.target.value)} disabled={loading}></input>
             <input placeholder="senha" type="password" value={password} onChange={ e => setPassword(e.target.value)} disabled={loading}></input>
-            <button onClick={enterAccount}>{loading?  <Loader
+            <button onClick={loading? "": enterAccount}>{loading?  <Loader
       type="ThreeDots" color="#ffffff" height={50} width={60} 
        /> : "Entrar"}
              </button>

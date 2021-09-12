@@ -11,7 +11,7 @@ const ContainerWhiteBoxes = styled.div`
 const WhiteBox = styled.div`
     width: 90%;
     height: auto;
-    padding: 13px;
+    padding: ${(props)=> props.padding || "13px"};
     background-color: #ffffff;
     border-radius: 5px;
 
@@ -27,28 +27,25 @@ const WhiteBox = styled.div`
         padding-left: 10px;
     }
 
+    h5{
+        font-size:13px ;
+    }
+
 `
 const Box = styled.div`
     display: flex;
     justify-content: ${(props)=> props.position || "center"};
-    align-items: center;
+    align-items: "center";
     margin-top:5px;
+    margin-right: 5px;
+
 `
 const Week = styled.div`
     margin-left: 5px;
     display: flex;
 
-    & :nth-child(2n+1){
-        background-color: #ffffff;
-        color: #DBDBDB;
-    }  
-    & :nth-child(2n){
-        background-color: #CFCFCF;
-        color: #ffffff;
-    }   
-
 `
-const Day = styled.div`
+const WeekDay = styled.div`
     width: 30px;
     height: 30px;
     border-radius: 5px;
@@ -59,6 +56,8 @@ const Day = styled.div`
     align-items: center;
     margin-left: 5px;
     margin-top: 10px;
+    background-color:${(props)=> props.choose? "#CFCFCF":"#ffffff"};
+    color: ${(props)=> props.choose? "#ffffff":"#DBDBDB"};
     
 `
 const Cancelar = styled.div`
@@ -83,12 +82,14 @@ const Salvar= styled.div`
 
 `
 
+
 export{
-    Day,
+    WeekDay,
     Week,
     WhiteBox,
     ContainerWhiteBoxes,
     Box,
     Cancelar,
-    Salvar
+    Salvar,
+    
 }
