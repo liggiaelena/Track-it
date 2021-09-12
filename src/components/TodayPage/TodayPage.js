@@ -11,9 +11,10 @@ import styled from "styled-components";
 export default function TodayPage(){
     require('dayjs/locale/pt-br') 
     const date = dayjs().locale('pt-br').format('dddd, MM/DD');
-    const { token, setPercentage } = useContext(UserContext);
+    const { token, setPercentage , percentage } = useContext(UserContext);
     const [tasks, setTasks] =useState([]);
     const [x, setX] = useState(0);
+    let somethingDone =false
    
 
     useEffect(()=>{
@@ -21,7 +22,7 @@ export default function TodayPage(){
         promisse.then((response)=>{
             console.log(response.data)
             setTasks(response.data)
-            setPercentage()
+            calculatePercentage(response.data)
         })
 
 
@@ -41,6 +42,18 @@ export default function TodayPage(){
         })
     }
 
+    function calculatePercentage(array){
+        const newArray = array.filter((item)=> item.done)
+
+        let percentage = (newArray.length/array.length).toFixed(2) * 100;
+        console.log(percentage)
+        setPercentage(percentage)
+
+    }
+
+    if(percentage !== 0){
+        somethingDone = true;
+    }
     
 
     return(
@@ -50,7 +63,7 @@ export default function TodayPage(){
                 <Header>   
                     {date}
                 </Header>
-                <Subtitle>Nenhum hábito concluído ainda</Subtitle>
+                <Subtitle somethingDone={somethingDone}>{somethingDone? `${percentage}% dos hábitos concluídos`:"Nenhum hábito concluído ainda"}</Subtitle>
                 {tasks.map((task)=> <TodayTask task={task} isTaskCompleted={isTaskCompleted}></TodayTask>)}
             </Page>
 
@@ -67,7 +80,7 @@ export default function TodayPage(){
 const Subtitle = styled.div`
  
     font-size: 18px;
-    color: #BABABA;
+    color: ${(props)=> props.somethingDone? '#8FC549':"#BABABA"};
    margin-top: 10px;
    width: 90%;
 
