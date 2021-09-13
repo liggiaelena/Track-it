@@ -17,8 +17,7 @@ const WhiteBox = styled.div`
     padding: ${(props)=> props.padding || "13px"};
     background-color: #ffffff;
     border-radius: 5px;
-    margin-bottom: 20px;
-    margin-right: 10px;
+    margin: 15px 12px;
 
     p{
         font-size: 20px;

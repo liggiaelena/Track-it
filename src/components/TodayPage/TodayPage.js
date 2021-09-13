@@ -26,8 +26,6 @@ export default function TodayPage(){
             calculatePercentage(response.data)
            
         })
-
-
     },[x]);
 
     function isTaskCompleted(id, done){
