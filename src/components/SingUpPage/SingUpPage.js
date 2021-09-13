@@ -27,7 +27,7 @@ export default function SingUpPage(){
     }
 
     return(
-        <Page>
+        <Page initial={true}>
          <Logo>
             <img src={logo} alt="" />
         </Logo>

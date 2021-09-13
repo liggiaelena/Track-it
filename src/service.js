@@ -31,7 +31,7 @@ function postNewHabit(name, days, token){
         name,
         days
     }
-    console.log(body)
+    
     const config = {
         headers:{
             "Authorization": `Bearer ${token}`
@@ -44,7 +44,7 @@ function postNewHabit(name, days, token){
 }
 
 function getAllHabits(token){
-    console.log(token)
+
     const config = {
         headers:{
             "Authorization": `Bearer ${token}`
@@ -57,7 +57,7 @@ function getAllHabits(token){
 }
 
 function deleteHabitAxios(id, token){
-    console.log(token)
+
     const config = {
         headers:{
             "Authorization": `Bearer ${token}`
@@ -69,7 +69,7 @@ function deleteHabitAxios(id, token){
 }
 
 function postTaskCompleted(id, checkbox, token){
-    console.log(token, id, checkbox)
+    
     const config = {
         headers:{
             "Authorization": `Bearer ${token}`

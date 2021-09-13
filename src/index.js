@@ -12,10 +12,11 @@ import { useState } from 'react';
 function Root(){
     const [token, setToken]= useState("");
     const [percentage, setPercentage] = useState(100);
-    console.log(token)
+    const [photo, setPhoto] = useState("")
+  
 
     return(
-        <UserContext.Provider value={{token, setToken, percentage, setPercentage}}>
+        <UserContext.Provider value={{token, setToken, percentage, setPercentage, setPhoto, photo}}>
     <BrowserRouter>
         <Switch>
             <Route path="/" exact>

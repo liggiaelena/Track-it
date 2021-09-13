@@ -13,7 +13,7 @@ export default function LoginPage(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
-    const { setToken } = useContext(UserContext);
+    const { setToken,  setPhoto } = useContext(UserContext);
   
 
     function enterAccount(){
@@ -21,8 +21,9 @@ export default function LoginPage(){
         const promisse = postAccount(body);
         promisse.then((response)=>{
         setToken(response.data.token);  
+        setPhoto(response.data.image)
         history.push("/hoje");
-        console.log(response.data)
+        
     })
         setLoading(true)
         promisse.catch(()=>{
@@ -33,7 +34,7 @@ export default function LoginPage(){
         setLoading(true);
     }
     return (
-        <Page>
+        <Page initial={true}>
         <Logo>
             <img src={logo} alt="" />
         </Logo>

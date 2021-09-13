@@ -10,7 +10,7 @@ export default function Habit(props){
 
 
     return(
-        <ContainerWhiteBoxes>
+       
             <WhiteBox>
                 <Box position={"space-between"}>
                  <p>{name}</p>
@@ -24,7 +24,7 @@ export default function Habit(props){
             {weekDays.map((dayName,i)=> <FixedDay key={i} dayName={dayName} i={i} days={days}/>)}
             </Week>
         </WhiteBox>
-        </ContainerWhiteBoxes>
+       
         
 
     );

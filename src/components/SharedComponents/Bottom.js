@@ -58,6 +58,9 @@ const Menu = styled.div`
         padding: 0px 30px;
         text-decoration: none;
     }
+    a{
+        text-decoration: none;
+    }
 `
 
 const Progress =styled.div`

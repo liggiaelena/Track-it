@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 const ContainerWhiteBoxes = styled.div`
-        margin-top: 25px;
+        margin-top: 15px;
+        height: auto;
         width: 100vw;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 70px;
+    
 
 `
 const WhiteBox = styled.div`
@@ -14,6 +17,8 @@ const WhiteBox = styled.div`
     padding: ${(props)=> props.padding || "13px"};
     background-color: #ffffff;
     border-radius: 5px;
+    margin-bottom: 20px;
+    margin-right: 10px;
 
     p{
         font-size: 20px;

@@ -7,6 +7,7 @@ import HabitsContext from '../../contexts/HabitsContext';
 import {postNewHabit, getAllHabits, deleteHabitAxios} from "../../service"
 import UserContext from "../../contexts/UserContext";
 import Habit from "./Habit";
+import { ContainerWhiteBoxes } from "../SharedStyles/StyleHabits";
 
 
 export default function HabitsPage(){
@@ -26,7 +27,6 @@ export default function HabitsPage(){
             if(resp.data.length !== 0){    
                 setHabits(resp.data)
                 setHaveHabit(true)
-                console.log(resp.data)
             }
         });
 
@@ -79,11 +79,14 @@ export default function HabitsPage(){
                     <h1>Meus hábitos</h1>
                     <button onClick={()=> setBoxCreatingHabit(true)}>+</button>
                 </Header>
-                {boxCreatingHabit? <NewHabit saveNewHabit={saveNewHabit} name={name} setName={setName} setBoxCreatingHabit={setBoxCreatingHabit} loading={loading}/> : ""}
+                <ContainerWhiteBoxes>
+                    {boxCreatingHabit? <NewHabit saveNewHabit={saveNewHabit} name={name} setName={setName} setBoxCreatingHabit={setBoxCreatingHabit} loading={loading}/> : ""}
                 
                 <p>{haveHabits? '': "Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!"}</p>
                 {habits.map((habit)=> <Habit  habit={habit} deleteHabit={deleteHabit}/>)}
-           
+
+                </ContainerWhiteBoxes>
+                
             </Page>
             <Bottom />
             </HabitsContext.Provider>

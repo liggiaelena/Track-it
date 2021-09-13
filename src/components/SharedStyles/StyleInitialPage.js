@@ -48,7 +48,7 @@ const ClientInformation = styled.div`
 
  const Page = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: ${(props)=> props.initial? "100vh": "auto"};
     background-color: #ffffff;
  
  `

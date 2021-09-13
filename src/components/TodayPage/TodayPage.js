@@ -7,11 +7,12 @@ import { getTodayHabits, postTaskCompleted } from "../../service";
 import * as dayjs from 'dayjs'
 import  UserContext  from "../../contexts/UserContext";
 import styled from "styled-components";
+import { ContainerWhiteBoxes} from "../SharedStyles/StyleHabits";
 
 export default function TodayPage(){
     require('dayjs/locale/pt-br') 
-    const date = dayjs().locale('pt-br').format('dddd, MM/DD');
-    const { token, setPercentage , percentage } = useContext(UserContext);
+    const date = dayjs().locale('pt-br').format('dddd, DD/MM');
+    const { token, setPercentage , percentage} = useContext(UserContext);
     const [tasks, setTasks] =useState([]);
     const [x, setX] = useState(0);
     let somethingDone =false
@@ -20,9 +21,10 @@ export default function TodayPage(){
     useEffect(()=>{
         const promisse = getTodayHabits(token);
         promisse.then((response)=>{
-            console.log(response.data)
+    
             setTasks(response.data)
             calculatePercentage(response.data)
+           
         })
 
 
@@ -46,7 +48,6 @@ export default function TodayPage(){
         const newArray = array.filter((item)=> item.done)
 
         let percentage = (newArray.length/array.length).toFixed(2) * 100;
-        console.log(percentage)
         setPercentage(percentage)
 
     }
@@ -64,7 +65,9 @@ export default function TodayPage(){
                     {date}
                 </Header>
                 <Subtitle somethingDone={somethingDone}>{somethingDone? `${percentage}% dos hábitos concluídos`:"Nenhum hábito concluído ainda"}</Subtitle>
+                <ContainerWhiteBoxes>
                 {tasks.map((task)=> <TodayTask task={task} isTaskCompleted={isTaskCompleted}></TodayTask>)}
+                </ContainerWhiteBoxes>
             </Page>
 
         <Bottom/>

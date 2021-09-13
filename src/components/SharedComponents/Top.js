@@ -1,11 +1,15 @@
 import Logo from "../../logo/Logo.png";
 import styled from 'styled-components';
+import UserContext from "../../contexts/UserContext";
+import { useContext } from "react";
 
 export default function Top(){
+    const {photo} = useContext(UserContext);
+   
     return(
         <Banner>
             <LogoImg src={Logo} />
-            <Profile src= "https://ptanime.com/wp-content/uploads/2018/12/Boku-no-Hero-Academia-anime-young-deku-destaque.jpg" />
+            <Profile src={photo} />
         </Banner>
     );
 }

@@ -1,4 +1,4 @@
-import {  WhiteBox, ContainerWhiteBoxes, Box} from "../SharedStyles/StyleHabits";
+import {  WhiteBox, Box} from "../SharedStyles/StyleHabits";
 import { IoIosCheckbox } from "react-icons/io";
 import styled from "styled-components";
 
@@ -24,7 +24,7 @@ export default function TodayTask(props){
 
     return(
            
-        <ContainerWhiteBoxes>
+       
         <WhiteBox padding="0px">
             <Box position="space-between" >
                 <MiniBox done={done}>
@@ -34,14 +34,14 @@ export default function TodayTask(props){
                 </MiniBox>
                
                 <IoIosCheckbox 
-                fontSize="120px"
+                fontSize="100px"
                 color={done? "#8FC549" : "#EBEBEB"}
                 onClick={()=>isTaskCompleted(id,done)}
                 /> 
             </Box>
             
         </WhiteBox>
-    </ContainerWhiteBoxes>
+ 
     );
 }
 

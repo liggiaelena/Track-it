@@ -2,12 +2,12 @@
 import { useState, useContext } from "react";
 import { WeekDay } from "../SharedStyles/StyleHabits";
 import HabitsContext from "../../contexts/HabitsContext";
+import { useEffect } from "react";
 
 
 export default function Day({dayName, i, loading}){
     const [choose, setChoose] = useState(false);
     const {days, setDays} = useContext(HabitsContext);
-
 
     function chooseSeat(){
         
@@ -22,6 +22,18 @@ export default function Day({dayName, i, loading}){
         setChoose(!choose);
         
     }
+
+    useEffect(()=>{
+        let haveBeenSelected = days.filter((day)=> day === i)
+
+        if(haveBeenSelected.length !== 0){
+            setChoose(true)
+        }
+        else{
+            setChoose(false)
+        }
+    }, [])
+
 
 
     return(
