@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 function Root(){
     const [token, setToken]= useState("");
-    const [percentage, setPercentage] = useState(100);
+    const [percentage, setPercentage] = useState(0);
     const [photo, setPhoto] = useState("")
   
 

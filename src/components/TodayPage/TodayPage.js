@@ -50,8 +50,11 @@ export default function TodayPage(){
 
     }
 
-    if(percentage !== 0){
+    if(percentage !== 0 ){
         somethingDone = true;
+        if(isNaN(percentage)){
+            somethingDone= false;
+        }
     }
     
 
