@@ -30,6 +30,7 @@ export default function HabitsPage(){
             }
         });
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[x])
 
 
@@ -44,10 +45,8 @@ export default function HabitsPage(){
         setBoxCreatingHabit(false);
 
       });
-      promisse.catch(error)
-       
+      promisse.catch(error)  
     }
-
 
     function error(erro){
         setName("");
@@ -57,7 +56,6 @@ export default function HabitsPage(){
         if(erro.response.status === 422){
             alert("campos invalidos, por favor tente novamente");
         }
-        
     }
 
     function deleteHabit(id){
@@ -68,10 +66,7 @@ export default function HabitsPage(){
         }
     }
 
-
-
     return(
-        <>
         <HabitsContext.Provider value={{days, setDays}}>
             <Top />
             <Page>
@@ -81,16 +76,12 @@ export default function HabitsPage(){
                 </Header>
                 <ContainerWhiteBoxes>
                     {boxCreatingHabit? <NewHabit saveNewHabit={saveNewHabit} name={name} setName={setName} setBoxCreatingHabit={setBoxCreatingHabit} loading={loading}/> : ""}
-                
-                <p>{haveHabits? '': "Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!"}</p>
-                {habits.map((habit)=> <Habit  habit={habit} deleteHabit={deleteHabit}/>)}
-
+                    <p>{haveHabits? '': "Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!"}</p>
+                    {habits.map((habit)=> <Habit key={habit.id} habit={habit} deleteHabit={deleteHabit}/>)}
                 </ContainerWhiteBoxes>
-                
             </Page>
             <Bottom />
-            </HabitsContext.Provider>
-        </>
+        </HabitsContext.Provider>
     );
 }
 

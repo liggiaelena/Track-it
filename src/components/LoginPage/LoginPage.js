@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Logo, ClientInformation, Alternative, Page} from '../SharedStyles/StyleInitialPage';
 import logo from '../../logo/LogoInicial.png'
 import { useState,useContext } from 'react';
@@ -20,11 +19,11 @@ export default function LoginPage(){
         const body = { email, password }
         const promisse = postAccount(body);
         promisse.then((response)=>{
-        setToken(response.data.token);  
-        setPhoto(response.data.image)
-        history.push("/hoje");
-        
-    })
+            setToken(response.data.token);  
+            setPhoto(response.data.image)
+            history.push("/hoje");
+        })
+
         setLoading(true)
         promisse.catch(()=>{
             alert("Essa conta não existe, verifique se email e senha estão corretos")
@@ -35,24 +34,25 @@ export default function LoginPage(){
     }
     return (
         <Page initial={true}>
-        <Logo>
-            <img src={logo} alt="" />
-        </Logo>
-        <ClientInformation loading={loading}>
-            <input placeholder="email" value={email} onChange={ e => setEmail(e.target.value)} disabled={loading}></input>
-            <input placeholder="senha" type="password" value={password} onChange={ e => setPassword(e.target.value)} disabled={loading}></input>
-            <button onClick={loading? "": enterAccount}>{loading?  <Loader
-      type="ThreeDots" color="#ffffff" height={50} width={60} 
-       /> : "Entrar"}
-             </button>
-
-            <Link to="/cadastro">
-            <Alternative>
-                 Não tem uma conta? Cadastre-se!
-            </Alternative>
-            </Link>
-        </ClientInformation >
-        
+            <Logo>
+                <img src={logo} alt="" />
+            </Logo>
+            <ClientInformation loading={loading? "true" : ''}>
+                <input placeholder="email" value={email} onChange={ e => setEmail(e.target.value)} disabled={loading}></input>
+                <input placeholder="senha" type="password" value={password} onChange={ e => setPassword(e.target.value)} disabled={loading}></input>
+                <button onClick={loading? "": enterAccount}>
+                    {loading?  <Loader
+                                type="ThreeDots" 
+                                color="#ffffff" 
+                                height={50} 
+                                width={60} 
+                                /> 
+                    : "Entrar"}
+                </button>   
+                <Alternative onClick={()=> history.push("/cadastro")}>
+                    Não tem uma conta? Cadastre-se!
+                </Alternative>
+            </ClientInformation >
         </Page>
     );
 }

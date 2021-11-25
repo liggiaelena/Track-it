@@ -4,7 +4,6 @@ import { WeekDay } from "../SharedStyles/StyleHabits";
 import HabitsContext from "../../contexts/HabitsContext";
 import { useEffect } from "react";
 
-
 export default function Day({dayName, i, loading}){
     const [choose, setChoose] = useState(false);
     const {days, setDays} = useContext(HabitsContext);
@@ -15,12 +14,9 @@ export default function Day({dayName, i, loading}){
             let newdays = days.filter((day)=> day !== i )
             setDays(newdays);
         }
-        else{
-            setDays([...days,i])
-        }
+        else {setDays([...days,i])}
 
         setChoose(!choose);
-        
     }
 
     useEffect(()=>{
@@ -32,12 +28,10 @@ export default function Day({dayName, i, loading}){
         else{
             setChoose(false)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-
-
     return(
-
         <WeekDay choose={choose} onClick={loading? "":chooseSeat}>
             {dayName}
         </WeekDay>

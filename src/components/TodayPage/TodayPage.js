@@ -21,11 +21,10 @@ export default function TodayPage(){
     useEffect(()=>{
         const promisse = getTodayHabits(token);
         promisse.then((response)=>{
-    
             setTasks(response.data)
             calculatePercentage(response.data)
-           
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[x]);
 
     function isTaskCompleted(id, done){
@@ -61,24 +60,19 @@ export default function TodayPage(){
     return(
         <>
         <Top />
-            <Page>
-                <Header>   
-                    {date}
-                </Header>
-                <Subtitle somethingDone={somethingDone}>{somethingDone? `${percentage}% dos hábitos concluídos`:"Nenhum hábito concluído ainda"}</Subtitle>
-                <ContainerWhiteBoxes>
-                {tasks.map((task)=> <TodayTask task={task} isTaskCompleted={isTaskCompleted}></TodayTask>)}
-                </ContainerWhiteBoxes>
-            </Page>
-
+        <Page>
+            <Header>   
+                {date}
+            </Header>
+            <Subtitle somethingDone={somethingDone}>{somethingDone? `${percentage}% dos hábitos concluídos`:"Nenhum hábito concluído ainda"}</Subtitle>
+            <ContainerWhiteBoxes>
+                {tasks.map((task)=> <TodayTask key={task.id} task={task} isTaskCompleted={isTaskCompleted}></TodayTask>)}
+            </ContainerWhiteBoxes>
+        </Page>
         <Bottom/>
         </>
-
     );
 }
-
-
-
 
 
 const Subtitle = styled.div`

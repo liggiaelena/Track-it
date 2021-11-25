@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import LoginPage from './components/LoginPage/LoginPage';
 import SingUpPage from './components/SingUpPage/SingUpPage';
