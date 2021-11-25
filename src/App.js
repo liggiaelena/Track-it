@@ -9,10 +9,9 @@ import UserContext from './contexts/UserContext';
 import { useState } from 'react';
 
 function App(){
-    const [token, setToken]= useState("");
     const [percentage, setPercentage] = useState(0);
-    const [photo, setPhoto] = useState("")
-  
+    const [photo, setPhoto] = useState(window.localStorage.getItem('image') || '');
+    const [token, setToken] = useState(window.localStorage.getItem('token') || '');
 
     return(
         <UserContext.Provider value={{token, setToken, percentage, setPercentage, setPhoto, photo}}>
@@ -36,8 +35,6 @@ function App(){
                 </Switch>     
             </BrowserRouter>
         </UserContext.Provider>
-    
-
     );
 }
 

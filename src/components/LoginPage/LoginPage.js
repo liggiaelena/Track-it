@@ -21,6 +21,8 @@ export default function LoginPage(){
         promisse.then((response)=>{
             setToken(response.data.token);  
             setPhoto(response.data.image)
+            window.localStorage.setItem('token', response.data.token)
+            window.localStorage.setItem('image', response.data.image)
             history.push("/hoje");
         })
 
