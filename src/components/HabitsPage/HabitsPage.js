@@ -25,7 +25,7 @@ export default function HabitsPage(){
         const promise = getAllHabits(token);
         promise.then((resp)=>{
             if(resp.data.length !== 0){    
-                setHabits(resp.data)
+                setHabits(resp.data.reverse())
                 setHaveHabit(true)
             }
         });
