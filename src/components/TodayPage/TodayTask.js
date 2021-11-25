@@ -30,14 +30,12 @@ export default function TodayTask(props){
                   <h5>Sequência atual: <span>{currentSequence}</span></h5>
                   <h5>Seu recorde: <Record isRecord={isRecord}>{highestSequence}</Record></h5>
                 </MiniBox>
-               
                 <IoIosCheckbox 
-                fontSize="100px"
-                color={done? "#8FC549" : "#EBEBEB"}
-                onClick={()=>isTaskCompleted(id,done)}
+                    fontSize="100px"
+                    color={done? "#8FC549" : "#EBEBEB"}
+                    onClick={()=>isTaskCompleted(id,done)}
                 /> 
             </Box>
-            
         </WhiteBox>
  
     );
