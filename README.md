@@ -1,10 +1,11 @@
 # Track-it
 <div align="center">
-  <img style='margin: 5px;' alt ="Gif" src='https://user-images.githubusercontent.com/82846994/143779709-44179e72-a2aa-49b6-a346-354e257368a5.gif'>
+  <img style='margin: 5px;' alt ="Gif" src='https://user-images.githubusercontent.com/82846994/143781620-e67f0f5e-1d95-412f-95e9-b89c2f15393f.gif'>
 </div>
 Track-it is a website for viewing and tracking your weekly tasks. Never forget a task again!
 
 ### try it yourself:
+
 https://vercel.com/liggiaelena/track-it
 
 ## About
