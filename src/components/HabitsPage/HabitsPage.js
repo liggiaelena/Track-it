@@ -18,7 +18,7 @@ export default function HabitsPage(){
     const [days, setDays] = useState([]);
     const { token } = useContext(UserContext);
     const [habits , setHabits] = useState([])
-    const [x, setX] = useState(0)
+    const [update, setUpdate] = useState(0)
    
 
     useEffect(()=>{
@@ -31,7 +31,7 @@ export default function HabitsPage(){
         });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[x])
+    },[update])
 
 
     function saveNewHabit(){
@@ -40,7 +40,7 @@ export default function HabitsPage(){
       promisse.then(()=> {
         setName("");
         setDays([]);
-        setX(x+1);
+        setUpdate(update+1);
         setLoading(false);
         setBoxCreatingHabit(false);
 
@@ -62,7 +62,7 @@ export default function HabitsPage(){
         const response = window.confirm("Você realmente gostaria de apagar este hábito?");
         if(response){
             const promise = deleteHabitAxios(id, token);
-            promise.then(()=> setX(x+1));
+            promise.then(()=> setUpdate(update+1));
         }
     }
 

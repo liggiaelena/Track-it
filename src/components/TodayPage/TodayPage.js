@@ -14,7 +14,7 @@ export default function TodayPage(){
     const date = dayjs().locale('pt-br').format('dddd, DD/MM');
     const { token, setPercentage , percentage} = useContext(UserContext);
     const [tasks, setTasks] =useState([]);
-    const [x, setX] = useState(0);
+    const [update, setUpdate] = useState(0);
     let somethingDone =false
    
 
@@ -25,7 +25,7 @@ export default function TodayPage(){
             calculatePercentage(response.data)
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[x]);
+    },[update]);
 
     function isTaskCompleted(id, done){
         let checkbox = '';
@@ -37,7 +37,7 @@ export default function TodayPage(){
         }
         const promise = postTaskCompleted(id,checkbox, token);
         promise.then(()=>{
-            setX(x+1);
+            setUpdate(update+1);
         })
     }
 
