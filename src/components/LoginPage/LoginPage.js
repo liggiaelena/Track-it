@@ -1,6 +1,6 @@
 import { Logo, ClientInformation, Alternative, Page} from '../SharedStyles/StyleInitialPage';
 import logo from '../../logo/LogoInicial.png'
-import { useState,useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { postAccount } from '../../service';
@@ -20,7 +20,9 @@ export default function LoginPage(){
         const promisse = postAccount(body);
         promisse.then((response)=>{
             setToken(response.data.token);  
-            setPhoto(response.data.image)
+            setPhoto(response.data.image);
+            window.localStorage.setItem('token', response.data.token)
+            window.localStorage.setItem('image', response.data.image)
             history.push("/hoje");
         })
 
@@ -32,6 +34,14 @@ export default function LoginPage(){
 
         setLoading(true);
     }
+
+    useEffect(()=>{
+        if(window.localStorage.getItem('token')){
+            history.push('/hoje')
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
         <Page initial={true}>
             <Logo>

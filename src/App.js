@@ -9,10 +9,9 @@ import UserContext from './contexts/UserContext';
 import { useState } from 'react';
 
 function App(){
-    const [token, setToken]= useState("");
+    const [photo, setPhoto] = useState(window.localStorage.getItem('image') || '');
+    const [token, setToken] = useState(window.localStorage.getItem('token') || '');
     const [percentage, setPercentage] = useState(0);
-    const [photo, setPhoto] = useState("")
-  
 
     return(
         <UserContext.Provider value={{token, setToken, percentage, setPercentage, setPhoto, photo}}>
