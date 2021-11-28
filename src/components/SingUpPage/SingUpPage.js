@@ -32,7 +32,7 @@ export default function SingUpPage(){
             </Logo>
             <ClientInformation loading={loading? "true":""}>
                 <input placeholder="email" value={email} onChange={ e => setEmail(e.target.value)} disabled={loading}/>
-                <input placeholder="senha" value={password} onChange={ e => setPassword(e.target.value)} disabled={loading}/>
+                <input placeholder="senha" type="password" value={password} onChange={ e => setPassword(e.target.value)} disabled={loading}/>
                 <input placeholder="nome" value={name} onChange={ e => setName(e.target.value)} disabled={loading}/>
                 <input placeholder="foto" value={image} onChange={ e => setImage(e.target.value)} disabled={loading}/>
                 <button onClick={createAccount}>
